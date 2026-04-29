@@ -61,11 +61,16 @@ button:hover {
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    overflow: hidden;
 }
 
 .note p {
     flex: 1;
     margin-right: 12px;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-all;
+    min-width: 0;
 }
 
 .delete-btn {
