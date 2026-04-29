@@ -1,6 +1,10 @@
 [
   {
-    "id": "13d74c70-947f-41d1-976f-8a8268d76fbf",
-    "content": "my first note"
+    "id": "7753026b-46bf-426d-8770-7bda5b07118b",
+    "content": "Hi, my name is Eli, and this is my first note!"
+  },
+  {
+    "id": "b413a1d0-5ce1-4f55-a6ec-89eef92f5858",
+    "content": "Hello, World!"
   }
 ]
