@@ -1,8 +1,8 @@
 const API = "http://127.0.0.1:8000/api"
 
-async function loadNotes() {
-  const res = await fetch(`${API}/notes`)
-  const notes = await res.json()
+let allNotes = []
+
+function renderNotes(notes) {
   const list = document.getElementById("notesList")
   list.innerHTML = ""
   notes.forEach(note => {
@@ -14,6 +14,13 @@ async function loadNotes() {
     `
     list.appendChild(div)
   })
+}
+
+async function loadNotes() {
+  const res = await fetch(`${API}/notes`)
+  allNotes = await res.json()
+  const query = document.getElementById("searchInput").value.toLowerCase()
+  renderNotes(allNotes.filter(n => n.content.toLowerCase().includes(query)))
 }
 
 async function addNote() {
@@ -35,5 +42,9 @@ async function deleteNote(id) {
 }
 
 document.getElementById("addBtn").addEventListener("click", addNote)
+document.getElementById("searchInput").addEventListener("input", () => {
+  const query = document.getElementById("searchInput").value.toLowerCase()
+  renderNotes(allNotes.filter(n => n.content.toLowerCase().includes(query)))
+})
 
 loadNotes()
